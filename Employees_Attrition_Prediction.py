@@ -51,3 +51,8 @@ X = scaler.fit_transform(X)
 # Split dataset into train and test set
 from sklearn.model_selection import train_test_split
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.30, random_state=0)
+
+#Function to Train and Test Any Model/Algorithm
+def my_train_test_model(X_train, Y_train, X_test, Model):
+    model.fit(X_train, Y_train) #Training the model, by fitting the model to the Training set
+    Y_pred = model.predict(X_test) # Predicting Test set results
