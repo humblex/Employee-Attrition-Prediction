@@ -56,3 +56,15 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.30, random
 def my_train_test_model(X_train, Y_train, X_test, Model):
     model.fit(X_train, Y_train) #Training the model, by fitting the model to the Training set
     Y_pred = model.predict(X_test) # Predicting Test set results
+
+    # Test the Model
+    from sklearn.metrics import confusion_matrix
+    cm = confusion_matrix(Y_test, Y_pred)
+    print('The confusion matrix of the', Model, 'Model is:')
+    print(cm)
+
+    # Accuracy Score
+    from sklearn.metrics import accuracy_score
+    accuracy = round(accuracy_score(Y_test, Y_pred) * 100, 2)
+    print('Accuracy of the', Model, 'Model is', str(accuracy)+'%')
+    print(" ")
