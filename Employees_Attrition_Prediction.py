@@ -35,3 +35,10 @@ employees = pd.concat([Employees_Left, Employees_Existing], ignore_index=True)
 
 #enable all columns to show during print, instead of being truncated
 pd.set_option('max_columns', None)
+
+#Convert Categorical values to Numeric Values
+employees = pd.get_dummies(employees)
+
+#Separating the dependent and independent values
+X = employees.drop(['Attrition'], axis=1)
+Y = employees['Attrition']
