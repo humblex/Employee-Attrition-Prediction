@@ -68,3 +68,23 @@ def my_train_test_model(X_train, Y_train, X_test, Model):
     accuracy = round(accuracy_score(Y_test, Y_pred) * 100, 2)
     print('Accuracy of the', Model, 'Model is', str(accuracy)+'%')
     print(" ")
+
+#Calling the function defined earlier to make the prediction, using different Algorithms
+
+#Prediction using SVM Algorithm or model
+from sklearn.svm import SVC  #Import Model
+ModelName = "SVC"
+model = SVC() #instantiating the model and assigning to a variable
+my_train_test_model(X_train, Y_train, X_test, ModelName) #calls the function define
+
+#Prediction using Decision Tree model
+from sklearn.tree import DecisionTreeClassifier
+ModelName = "DecisionTreeClassifier"
+model = DecisionTreeClassifier(criterion='entropy', random_state=0)
+my_train_test_model(X_train, Y_train, X_test, ModelName) #calls the function define
+
+#Prediction using Random Forest Model
+from sklearn.ensemble import RandomForestClassifier
+ModelName = "RandomForestClassifier"
+model = RandomForestClassifier()
+my_train_test_model(X_train, Y_train, X_test, ModelName)
