@@ -42,3 +42,12 @@ employees = pd.get_dummies(employees)
 #Separating the dependent and independent values
 X = employees.drop(['Attrition'], axis=1)
 Y = employees['Attrition']
+
+#Scaling the data values to standardize the range of independent variables (Feature Scaling)
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X = scaler.fit_transform(X)
+
+# Split dataset into train and test set
+from sklearn.model_selection import train_test_split
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.30, random_state=0)
