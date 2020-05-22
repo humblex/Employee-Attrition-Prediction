@@ -32,3 +32,6 @@ Employees_Existing["Attrition"] = dummyArray2
 
 #merge existing employees to those who left using concat, use ignore_index=True so as to reassign the index after merge
 employees = pd.concat([Employees_Left, Employees_Existing], ignore_index=True)
+
+#enable all columns to show during print, instead of being truncated
+pd.set_option('max_columns', None)
